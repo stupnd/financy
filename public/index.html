@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AI Finance and Budget Advisor</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-    <script defer src="/__/firebase/10.12.5/firebase-app-compat.js"></script>
-    <script defer src="/__/firebase/10.12.5/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js"></script>
     <style>
         body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; margin: 0; padding: 0; }
         .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 20px; }
@@ -38,20 +38,9 @@
         <button class="button" onclick="calculateBudget()">Calculate</button>
         <div class="results" id="results"></div>
     </div>
+    <!-- Include your app.js script -->
+    <script type="module" src="app.js"></script>
     <script>
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_PROJECT_ID.appspot.com",
-            messagingSenderId: "YOUR_SENDER_ID",
-            appId: "YOUR_APP_ID",
-            measurementId: "YOUR_MEASUREMENT_ID"
-        };
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-
         function calculateBudget() {
             const income = parseFloat(document.getElementById('income').value);
             const expenses = parseFloat(document.getElementById('expenses').value);
